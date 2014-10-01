@@ -1,0 +1,11 @@
+[app]
+  version: 0.1.0
+  org: org.stelo
+  name: gupuz
+  class: org.stelo.cw.guimport.GuPuz
+[scala]
+  version: 2.11.2
+[repositories]
+  local
+  scala-tools-releases
+  maven-central
