@@ -32,16 +32,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.file.Files;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-//import android.content.res.Resources;
-//import android.text.TextUtils;
-//
-//import com.adamrosenfield.wordswithcrosses.R;
-//import com.adamrosenfield.wordswithcrosses.WordsWithCrossesApplication;
 import com.adamrosenfield.wordswithcrosses.puz.Box;
 import com.adamrosenfield.wordswithcrosses.puz.Puzzle;
 
@@ -363,9 +359,7 @@ public class IO {
             fos.close();
         }
 
-        if (!tempFile.renameTo(destFile)) {
-            throw new IOException("Failed to rename " + tempFile + " to " + destFile);
-        }
+        Files.move(tempFile.toPath(), destFile.toPath());
 
         LOG.info("Save complete in " + (System.currentTimeMillis() - incept) + " ms");
     }
